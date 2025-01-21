@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">sistema_de_votos</string>
+    <string name="title">Pesquisa de Opinião</string>
+    <string name="participate">Participar da Pesquisa</string>
+    <string name="check_vote">Checar meu Voto</string>
+    <string name="end">Finalizar</string>
+</resources>
