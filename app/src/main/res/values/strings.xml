@@ -4,4 +4,19 @@
     <string name="participate">Participar da Pesquisa</string>
     <string name="check_vote">Checar meu Voto</string>
     <string name="end">Finalizar</string>
+    <string name="record">Prontuário</string>
+    <string name="name">Nome Completo</string>
+    <string name="bad">Ruim</string>
+    <string name="regular">Regular</string>
+    <string name="good">Bom</string>
+    <string name="great">Ótimo</string>
+    <string name="continued">Prosseguir</string>
+    <string name="send_vote">Enviar Voto</string>
+    <string name="fill_all_fields">Todos os campos devem estar preenchidos</string>
+    <string name="select_op">É preciso selecionar uma das opiniões disponíveis</string>
+    <string name="already_voted">já possui seu voto contabilizado</string>
+    <string name="error_send">Houve um erro ao registrar o voto</string>
+    <string name="vote_code">Código de voto</string>
+    <string name="back">Voltar</string>
+    <string name="code_copyied">Código de voto copiado</string>
 </resources>
