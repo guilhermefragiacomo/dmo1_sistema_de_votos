@@ -1,6 +1,7 @@
 package br.ifsp.edu.dmo1.sistema_de_votos.ui.view
 
 import ParticipateViewModel
+import android.R.id
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -38,12 +40,14 @@ class ParticipateActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             val prontuario = etRecord.text.toString().trim()  // Obtém o prontuário digitado
             val nome = etName.text.toString().trim()  // Obtém o nome digitado
-            val opiniaoSelecionada = rgOpinions.checkedRadioButtonId  // Obtém a opinião selecionada
+            val opiniaoSelecionada = findViewById<RadioButton>(rgOpinions.getCheckedRadioButtonId());
+
+            System.out.println(opiniaoSelecionada);
 
             // Validação dos campos
             if (prontuario.isEmpty() || nome.isEmpty()) {
                 Toast.makeText(this, getString(R.string.fill_all_fields), Toast.LENGTH_SHORT).show() // Exibe mensagem de erro se campos estiverem vazios
-            } else if (opiniaoSelecionada == -1) {
+            } else if (opiniaoSelecionada == null) {
                 Toast.makeText(this, getString(R.string.select_op), Toast.LENGTH_SHORT).show() // Exibe mensagem de erro se nenhuma opinião for selecionada
             } else {
                 // Verifica se o estudante já votou
@@ -54,8 +58,18 @@ class ParticipateActivity : AppCompatActivity() {
                     var codigo = ""  // Inicializa a variável para armazenar o código de voto
                     try {
                         // Adiciona o estudante e o voto
+                        val opiniao : Int = when (opiniaoSelecionada.text) {
+                            getString(R.string.bad) -> 0;
+                            getString(R.string.regular) -> 1;
+                            getString(R.string.good) -> 2;
+                            getString(R.string.great) -> 3;
+                            else -> -1;
+                        }
+
+                        System.out.println(opiniao);
+
                         viewModel.addEstudante(prontuario, nome)
-                        codigo = viewModel.addVoto(opiniaoSelecionada) // Armazena o código do voto
+                        codigo = viewModel.addVoto(opiniao) // Armazena o código do voto
                     } catch (e: Exception) {
                         // Em caso de erro ao inserir, exibe mensagem de erro e volta para a tela principal
                         Toast.makeText(this, getString(R.string.error_send), Toast.LENGTH_SHORT).show()

@@ -20,4 +20,6 @@
     <string name="vote_code">Voting code</string>
     <string name="back">Back</string>
     <string name="code_copyied">Copied vote code</string>
+    <string name="next">Next</string>
+    <string name="havent_voted_yet">You havent voted yet</string>
 </resources>

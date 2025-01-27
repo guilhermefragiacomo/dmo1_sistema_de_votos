@@ -1,6 +1,7 @@
 package br.ifsp.edu.dmo1.sistema_de_votos
 
 import android.content.ContentValues
+import br.ifsp.edu.dmo1.sistema_de_votos.model.Voto
 
 // Classe DAO para manipular os dados da tabela "voto"
 class VotoDao(private val dbHelper: DatabaseHelper) {

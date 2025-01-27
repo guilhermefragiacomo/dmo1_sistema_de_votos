@@ -19,4 +19,6 @@
     <string name="vote_code">Código de voto</string>
     <string name="back">Voltar</string>
     <string name="code_copyied">Código de voto copiado</string>
+    <string name="next">Próximo</string>
+    <string name="havent_voted_yet">Você ainda não votou</string>
 </resources>
