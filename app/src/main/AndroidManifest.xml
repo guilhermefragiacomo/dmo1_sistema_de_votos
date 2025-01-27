@@ -29,6 +29,10 @@
             android:name=".ui.view.CheckVoteActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ui.view.ResultActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
