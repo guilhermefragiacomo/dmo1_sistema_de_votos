@@ -40,6 +40,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
                 "${DATABASE_KEYS.COLUMN_VOTO_VALOR} INTEGER NOT NULL, " +
                 "PRIMARY KEY (${DATABASE_KEYS.COLUMN_VOTO_CODIGO}))"
 
+        /*
         // Consulta para buscar um voto específico pelo código
         const val BUSCA_ESTUDANTE_VOTO = "SELECT ${DATABASE_KEYS.COLUMN_VOTO_CODIGO}, ${DATABASE_KEYS.COLUMN_VOTO_VALOR}" +
                 "FROM ${DATABASE_KEYS.TABLE_VOTO_NAME}" +
@@ -49,6 +50,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
         const val BUSCA_TODOS_VOTOS = "SELECT ${DATABASE_KEYS.COLUMN_VOTO_VALOR}, COUNT(*) AS Quantidade" +
                 "FROM ${DATABASE_KEYS.TABLE_VOTO_NAME}" +
                 "GROUP BY ${DATABASE_KEYS.COLUMN_VOTO_VALOR}"
+         */
 
         // Comandos para excluir as tabelas existentes
         const val DROP_TABLE_ESTUDANTE = "DROP TABLE IF EXISTS ${DATABASE_KEYS.TABLE_ESTUDANTE_NAME}"

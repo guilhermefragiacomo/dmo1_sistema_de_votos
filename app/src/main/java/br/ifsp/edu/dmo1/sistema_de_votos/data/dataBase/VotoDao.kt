@@ -21,8 +21,8 @@ class VotoDao(private val dbHelper: DatabaseHelper) {
     fun getAllVotos(): List<Voto> {
         val db = dbHelper.readableDatabase
         val columns = arrayOf(
-            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_CODIGO, // Coluna do código do voto
-            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR // Coluna do valor do voto
+            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Coluna do valor do voto
+            "COUNT(*) AS Quantidade" // Contagem de votos
         )
 
         val cursor = db.query(
@@ -30,7 +30,7 @@ class VotoDao(private val dbHelper: DatabaseHelper) {
             columns, // Colunas a serem retornadas
             null, // Sem condição de filtro
             null, // Sem argumentos para o filtro
-            null, // Sem agrupamento
+            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Sem agrupamento
             null, // Sem filtro por grupos
             null // Sem ordenação
         )
