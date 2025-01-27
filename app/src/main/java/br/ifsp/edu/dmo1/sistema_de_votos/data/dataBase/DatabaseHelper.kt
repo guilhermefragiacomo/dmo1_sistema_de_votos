@@ -10,7 +10,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context,
 ) {
     object DATABASE_KEYS{
         const val DATABASE_NAME = "pesquisaOpiniao.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
 
         const val TABLE_ESTUDANTE_NAME = "estudante"
         const val COLUMN_ESTUDANTE_PRONTUARIO = "prontuario"
@@ -31,8 +31,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context,
                 "${DATABASE_KEYS.COLUMN_VOTO_VALOR} INTEGER NOT NULL, " +
                 "PRIMARY KEY (${DATABASE_KEYS.COLUMN_VOTO_CODIGO}))"
 
+        const val BUSCA_ESTUDANTE_VOTO = "SELECT ${DATABASE_KEYS.COLUMN_VOTO_CODIGO}, ${DATABASE_KEYS.COLUMN_VOTO_VALOR}" +
+                "FROM ${DATABASE_KEYS.TABLE_VOTO_NAME}" +
+                "WHERE ${DATABASE_KEYS.COLUMN_VOTO_CODIGO} = ?"
+
+        const val BUSCA_TODOS_VOTOS = "SELECT ${DATABASE_KEYS.COLUMN_VOTO_VALOR}, COUNT(*) AS Quantidade" +
+                "FROM ${DATABASE_KEYS.TABLE_VOTO_NAME}" +
+                "GROUP BY ${DATABASE_KEYS.COLUMN_VOTO_VALOR}"
+
         const val DROP_TABLE_ESTUDANTE = "DROP TABLE IF EXISTS ${DATABASE_KEYS.TABLE_ESTUDANTE_NAME}"
         const val DROP_TABLE_VOTO = "DROP TABLE IF EXISTS ${DATABASE_KEYS.TABLE_VOTO_NAME}"
+
     }
 
     override fun onCreate(db: SQLiteDatabase) {
