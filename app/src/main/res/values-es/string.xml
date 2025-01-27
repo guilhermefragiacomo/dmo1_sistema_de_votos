@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">sistema_de_votación</string>
+    <string name="title">Encuesta de Opinión</string>
+    <string name="participate">Participa en la encuesta</string>
+    <string name="check_vote">Revisa mi voto</string>
+    <string name="end">Finalizar</string>
+    <string name="record">Registro</string>
+    <string name="name">Nombre completo</string>
+    <string name="bad">Malo</string>
+    <string name="regular">Regular</string>
+    <string name="good">Bien</string>
+    <string name="great">Excelente</string>
+    <string name="continued">Continuar</string>
+    <string name="send_vote">Enviar voto</string>
+    <string name="fill_all_fields">Todos los campos deben ser completados.</string>
+    <string name="select_op">Debes seleccionar una de las opiniones disponibles.</string>
+    <string name="already_voted">Tu voto ya ha sido contado.</string>
+    <string name="error_send">Hubo un error al registrar el voto.</string>
+    <string name="vote_code">Código de votación</string>
+    <string name="back">Volver</string>
+    <string name="code_copyied">Código de voto copiado</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Voting_system</string>
+    <string name="title">Opinion Survey</string>
+    <string name="participate">Participate in the Survey</string>
+    <string name="check_vote">Check my vote</string>
+    <string name="end">Finish</string>
+    <string name="record">Record</string>
+    <string name="name">Full name</string>
+    <string name="bad">Bad</string>
+    <string name="regular">Regular</string>
+    <string name="good">Good</string>
+    <string name="great">Excellent</string>
+    <string name="continued">Continue</string>
+    <string name="send_vote">Submit Vote</string>
+    <string name="fill_all_fields">All fields must be filled in</string>
+    <string name="select_op">You must select one of the available opinions</string>
+    <string name="already_voted">Your vote has already been counted</string>
+    <string name="error_send">There was an error registering the vote</string>
+    <string name="vote_code">Voting code</string>
+    <string name="back">Back</string>
+    <string name="code_copyied">Copied vote code</string>
+</resources>
