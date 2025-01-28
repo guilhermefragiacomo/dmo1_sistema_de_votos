@@ -29,28 +29,33 @@ class ResultActivity : AppCompatActivity() {
         val tvRegular = findViewById<TextView>(R.id.tvRegular)
         val tvGood = findViewById<TextView>(R.id.tvGood)
         val tvGreat = findViewById<TextView>(R.id.tvGreat)
-        val tvTotal = findViewById<TextView>(R.id.tvTotal);
+        val tvTotal = findViewById<TextView>(R.id.tvTotal)
         val btnBack = findViewById<Button>(R.id.btnBack)
 
-        val list = viewModel.getAllVotes();
+        val list = viewModel.getAllVotes()
 
-        var lista_contagem = ArrayList<Int>(Arrays.asList(0,0,0,0,0));
+        // Inicializa contagem
+        val listaContagem = IntArray(4) // Para votos: 0, 1, 2, 3
 
         try {
             for (i in list) {
-                System.out.println(i.valor);
-                lista_contagem[i.valor]++;
-                lista_contagem[4]++;
+                if (i.valor in 0..3) { // Valida o intervalo dos votos
+                    listaContagem[i.valor]++
+                } else {
+                    println("Valor inválido encontrado: ${i.valor}")
+                }
             }
 
-            tvBad.setText(getString(R.string.bad) + ": " + (lista_contagem[0].toString()));
-            tvRegular.setText(getString(R.string.regular) + ": " + (lista_contagem[1].toString()));
-            tvGood.setText(getString(R.string.good) + ": " + (lista_contagem[2].toString()));
-            tvGreat.setText(getString(R.string.great) + ": " + (lista_contagem[3].toString()));
-            tvTotal.setText(getString(R.string.total) + ": " + (lista_contagem[4].toString()));
+            val totalVotes = listaContagem.sum() // Soma os votos diretamente
 
-        } catch (e : Exception) {
-            System.out.println(e);
+            // Atualiza os TextViews
+            tvBad.text = getString(R.string.bad) + ": " + listaContagem[0]
+            tvRegular.text = getString(R.string.regular) + ": " + listaContagem[1]
+            tvGood.text = getString(R.string.good) + ": " + listaContagem[2]
+            tvGreat.text = getString(R.string.great) + ": " + listaContagem[3]
+            tvTotal.text = getString(R.string.total) + ": " + totalVotes
+        } catch (e: Exception) {
+            println("Erro: ${e.message}")
         }
 
         // Configura o clique do botão "Voltar"
