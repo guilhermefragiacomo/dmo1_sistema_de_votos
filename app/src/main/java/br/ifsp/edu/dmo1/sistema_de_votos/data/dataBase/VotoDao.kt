@@ -21,31 +21,34 @@ class VotoDao(private val dbHelper: DatabaseHelper) {
     fun getAllVotos(): List<Voto> {
         val db = dbHelper.readableDatabase
         val columns = arrayOf(
-            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Coluna do valor do voto
-            "COUNT(*) AS Quantidade" // Contagem de votos
+            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Valor do voto
+            "COUNT(*) AS Quantidade"                        // Contagem de votos
         )
 
         val cursor = db.query(
-            DatabaseHelper.DATABASE_KEYS.TABLE_VOTO_NAME, // Tabela "voto"
-            columns, // Colunas a serem retornadas
-            null, // Sem condição de filtro
-            null, // Sem argumentos para o filtro
-            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Sem agrupamento
-            null, // Sem filtro por grupos
-            null // Sem ordenação
+            DatabaseHelper.DATABASE_KEYS.TABLE_VOTO_NAME,   // Tabela "voto"
+            columns,                                        // Colunas a retornar
+            null,                                           // Sem filtro
+            null,                                           // Sem argumentos para o filtro
+            DatabaseHelper.DATABASE_KEYS.COLUMN_VOTO_VALOR, // Agrupa por "valor"
+            null,                                           // Sem filtro por grupos
+            null                                            // Sem ordenação
         )
 
-        val votos = mutableListOf<Voto>() // Lista para armazenar os votos
+        val votos = mutableListOf<Voto>()
 
         cursor.use {
-            while (it.moveToNext()) { // Itera pelos resultados
+            while (it.moveToNext()) {
                 votos.add(
-                    Voto(codigo = it.getString(0), valor = it.getInt(1)) // Adiciona o voto na lista
+                    Voto(
+                        codigo = it.getString(0), // Valor do voto
+                        valor = it.getInt(1)      // Quantidade de votos
+                    )
                 )
             }
         }
 
-        return votos // Retorna a lista de votos
+        return votos
     }
 
     // Busca um voto pelo código
