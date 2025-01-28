@@ -7,7 +7,7 @@ Este sistema básico de votação oferece uma maneira eficiente e simples para o
 ### Autor:
 
   - Guilherme Zappalenti Fragiacomo
-  - Luiz Francisco Rodrigues Junios
+  - Luiz Francisco Rodrigues Junior
 
 ### Técnologias:
 
